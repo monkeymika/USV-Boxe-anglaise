@@ -1,0 +1,63 @@
+body {
+  background: rgb(69, 69, 69);
+  background: linear-gradient(
+    48deg,
+    rgba(69, 69, 69, 1) 0%,
+    rgba(82, 77, 77, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+
+  color: white;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+  color: #53b848;
+  font-family: "Anton", sans-serif;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  margin: 2rem;
+}
+
+a,
+h1 {
+  color: #53b848;
+}
+
+li {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 2rem;
+}
+
+.title a {
+  padding: 1em;
+  background: black;
+  border: 2px solid #53b848;
+  color: #53b848;
+  display: flex;
+  gap: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  align-items: center;
+}

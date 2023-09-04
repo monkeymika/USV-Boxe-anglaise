@@ -1,0 +1,919 @@
+/*************************************************************************/
+/*************************** VARIABLE CSS *******************************/
+/***********************************************************************/
+:root {
+  /*** Graphic Chart ***/
+  --greenShort: #53b848;
+  /* --greenShort: #137b08; */
+  --greyDark: #404a3c;
+  --greyLight: #a3af9e;
+  --darkBG: #272727;
+
+  --shark-color: #20252b;
+  --dark-shark-color: #1c2127;
+  --grey-color: #9e9e9e4d;
+  --pink-color: #ec3c4b;
+  --white-color: #fff;
+}
+/*********************************************************************/
+/******************************* BASE *******************************/
+/*******************************************************************/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(69, 69, 69);
+  background: linear-gradient(
+    48deg,
+    rgba(69, 69, 69, 1) 0%,
+    rgba(82, 77, 77, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+.text,
+.num {
+  font-family: "Anton", sans-serif;
+}
+
+p,
+li,
+a,
+.madeBy {
+  font-family: "Lato", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  color: white;
+}
+
+h2 {
+  font-size: 4.5vw;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+
+h2::before {
+  content: ""; /* Nécessaire pour que le pseudo-élément s'affiche */
+  position: absolute;
+  left: -200px; /* Décalez la ligne à gauche du texte. Vous pouvez ajuster cette valeur pour rapprocher ou éloigner la ligne du texte */
+  top: 50%; /* Pour centrer verticalement la ligne par rapport au h2 */
+  transform: translateY(
+    -50%
+  ); /* Ajuste la position pour un centrage vertical parfait */
+  width: 150px; /* La longueur de votre ligne. Ajustez selon vos préférences */
+  height: 5px; /* L'épaisseur de votre ligne. Ajustez selon vos préférences */
+  background-color: var(--greenShort);
+}
+
+h2::after {
+  content: ""; /* Nécessaire pour que le pseudo-élément s'affiche */
+  position: absolute;
+  right: -200px; /* Décalez la ligne à gauche du texte. Vous pouvez ajuster cette valeur pour rapprocher ou éloigner la ligne du texte */
+  top: 50%; /* Pour centrer verticalement la ligne par rapport au h2 */
+  transform: translateY(
+    -50%
+  ); /* Ajuste la position pour un centrage vertical parfait */
+  width: 150px; /* La longueur de votre ligne. Ajustez selon vos préférences */
+  height: 5px; /* L'épaisseur de votre ligne. Ajustez selon vos préférences */
+  background-color: var(--greenShort);
+}
+
+@media (max-width: 510px) {
+  h2 {
+    font-size: 5vw;
+  }
+
+  h2::before {
+    left: -110px;
+    width: 90px;
+  }
+
+  h2::after {
+    right: -110px;
+    width: 90px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+section {
+  margin: 3rem 2rem;
+}
+
+/* Animation*/
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes apparition {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s, transform 1s;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal[data-delay] {
+  transition-delay: 0s; /* default value */
+}
+
+.reveal[data-delay].reveal-visible {
+  transition-delay: var(--delay);
+}
+
+/*************************************************************************/
+/******************************* HEADER *********************************/
+/***********************************************************************/
+
+/*********** Navigation **************/
+
+.container__logo__nav {
+  width: 70px;
+}
+
+.container__logo__nav img {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+button:hover {
+  opacity: 0.9;
+}
+.nav-brand {
+  color: var(--white-color);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.nav-menu {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: apparition 0.4s 1.2s ease-out forwards;
+}
+
+.nav-container {
+  margin: 0px 10rem;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 60px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+  z-index: 9999;
+}
+
+/* show overlay js */
+.show-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-overlay-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  position: relative;
+}
+#menu-hide-btn {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  color: var(--dark-shark-color);
+  border: 1px solid black;
+  line-height: 1;
+}
+.nav-links li {
+  margin: 16px 0;
+  position: relative;
+}
+.nav-links li::before,
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: var(--greenShort);
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-links li::before {
+  top: 0;
+  left: 0;
+}
+
+.nav-links li::after {
+  bottom: 0;
+  right: 0;
+}
+
+.nav-links li:hover::before,
+.nav-links li:hover::after {
+  width: 75%;
+  opacity: 1;
+}
+
+.nav-links li a {
+  text-transform: uppercase;
+  font-size: 40px;
+  letter-spacing: 6px;
+  font-weight: 700;
+  transition: all 300ms ease-in-out;
+  color: white;
+}
+
+.nav-links li:hover a {
+  color: var(--greenShort);
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.nav-icons li {
+  border: 1px solid var(--grey-color);
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+  line-height: 35px;
+  border-radius: 50%;
+  transition: all 200ms ease-in-out;
+  background: white;
+}
+
+.nav-icons li:hover {
+  background-color: var(--greenShort);
+}
+
+.nav-icons li a {
+  color: black;
+}
+
+.nav-icons li:hover a {
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .nav-links li a {
+    font-size: 22px;
+  }
+  .nav-overlay {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 980px) {
+  .nav-container {
+    margin: 0px 5rem;
+  }
+
+  .container__logo__nav {
+    width: 70px;
+  }
+}
+/*********** Nav -END **************/
+
+header {
+  background-image: linear-gradient(#f1f1f130, rgba(0, 0, 0, 0.925)),
+    url(../images/usv1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 90px;
+  animation: zoomIn 1.5s ease-in-out forwards;
+}
+
+.container__button {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.hero__content {
+  padding: 1rem;
+}
+
+.hero__content h1 {
+  font-size: 6vw;
+  padding-left: 2rem;
+  position: relative;
+}
+
+.hero__content h1.animate-border::before {
+  height: 100%;
+}
+
+.hero__content h1::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15px;
+  height: 0;
+  background-color: var(--greenShort);
+  transition: height 1.5s;
+}
+
+.normalText,
+.textColor {
+  display: inline-block;
+  transform: translateX(-10%);
+  opacity: 0;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.normalText.slide-in,
+.textColor.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.hero__content h1 .textColor {
+  background: rgb(83, 184, 72);
+  background: linear-gradient(
+    141deg,
+    rgba(83, 184, 72, 1) 42%,
+    rgba(181, 218, 178, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero__content p {
+  max-width: 600px;
+  padding-top: 1rem;
+  font-size: calc(0.8rem + 0.5vw);
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideInFromBottom 0.8s 0.8s ease-out forwards;
+}
+
+.hero__img {
+  width: 35%;
+}
+
+.hero__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__gallery img:first-child {
+  opacity: 1;
+}
+
+nav.scrolled {
+  background-color: var(--greyDark);
+}
+
+.btn__container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: slideInFromBottom 0.6s 0.6s ease-out forwards;
+}
+
+.btn__container .custom-button {
+  font-size: clamp(0.5rem, 2vw, 1rem);
+}
+
+.custom-button {
+  display: inline-block;
+  width: 25%;
+  height: 50px;
+  background-color: #3b7e33;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.custom-button:hover {
+  background-color: #2b5c25;
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+@media (max-width: 790px) {
+  .hero__content {
+    text-align: center;
+    padding: 4rem;
+  }
+
+  .hero__img {
+    display: none;
+  }
+
+  .hero__content h1 {
+    font-size: 10vw;
+    padding-left: 2rem;
+  }
+
+  .hero__content p {
+    max-width: 100%;
+    padding-top: 1rem;
+    font-size: calc(0.4rem + 1.5vw);
+  }
+
+  .btn__container {
+    justify-content: center;
+  }
+
+  .btn__container .custom-button {
+    font-size: 1.8vw;
+  }
+}
+
+@media (max-width: 590px) {
+  .btn__container .custom-button {
+    font-size: 2.5vw;
+  }
+
+  .custom-button {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/****************************************************************************************/
+/************************************** Le Club ***************************************/
+/**************************************************************************************/
+
+.container__club {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.container__club__img {
+  width: 45%;
+}
+
+.container__club__img img {
+  width: 100%;
+  height: 100%;
+}
+
+.club__content {
+  max-width: 50%;
+  padding: 2rem;
+}
+
+.club__content p {
+  margin-top: 1rem;
+}
+
+/* Counter*/
+
+.counter__wrapper {
+  width: 100%;
+  display: flex;
+  margin-top: 2rem;
+  gap: 1em;
+}
+
+.counter__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2em;
+  font-size: 16px;
+  background: #21242b;
+  border-radius: 20px;
+}
+
+.counter__container i {
+  color: var(--greenShort);
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.counter__img {
+  width: 30%;
+  margin: auto;
+}
+
+span.num {
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: calc(1rem + 1.5vw);
+  margin-top: 1rem;
+}
+
+span.text {
+  color: white;
+  font-size: calc(0.8rem + 0.5vw);
+  text-align: center;
+  line-height: 1.4;
+  padding: 0.7em 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .container__club__img {
+    width: 80%;
+  }
+
+  .counter__wrapper {
+    width: 100%;
+  }
+  .counter__container {
+    height: 70%;
+    width: 70%;
+    font-size: 12px;
+    padding: 3rem;
+  }
+
+  .container__club {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .club__content {
+    max-width: 100%;
+  }
+
+  .counter__wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .counter__wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .counter__container {
+    width: 35%;
+    font-size: 14px;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .counter__container {
+    width: 100%;
+    font-size: 8px;
+  }
+
+  .counter__img {
+    width: 20%;
+    margin: auto;
+  }
+}
+
+/****************************************************************************************/
+/************************************** L'entraineur ***********************************/
+/**************************************************************************************/
+.presentation {
+  padding: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  color: white;
+}
+
+.presentation__container {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.presentation__container p {
+  color: white;
+}
+
+.img__container {
+  width: 100%;
+}
+
+.img__container img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 950px) {
+  .presentation__container {
+    flex-direction: column;
+  }
+
+  .img__container {
+    width: 30%;
+  }
+}
+
+/****************************************************************************************/
+/************************************** Gallery ***************************************/
+/**************************************************************************************/
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmin;
+  padding: 0 14px;
+}
+
+.gallery li {
+  height: 250px;
+  flex-grow: 1;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/********************************************************************************************/
+/************************************** Footer *********************************************/
+/******************************************************************************************/
+
+footer {
+  background: rgb(32, 32, 32);
+  padding: 70px 0;
+}
+
+.container__footer__logo {
+  width: 50%;
+}
+
+.container__footer__logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.footer__container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.footer__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer__col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer__col h4 {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer__col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background: var(--greenShort);
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer__ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer__ul li a {
+  font-size: 16px;
+  font-weight: 300;
+  display: block;
+}
+
+.contact-text {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.contact-text a {
+  color: white;
+}
+
+.contact-text i {
+  color: var(--greenShort);
+  font-size: 25px;
+}
+
+.footer__col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background: var(--grey-color);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  color: white;
+}
+
+.footer__col .social-links a:hover {
+  background: white;
+  color: black;
+}
+
+/*responsive*/
+@media (max-width: 767px) {
+  .footer__col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer__col {
+    width: 100%;
+  }
+
+  .container__footer__logo {
+    margin: 0 auto;
+  }
+
+  .container__footer__logo {
+    width: 35%;
+  }
+}
+
+.madeBy {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.madeBy a {
+  color: white;
+}
+
+.madeBy .monkey {
+  color: var(--greenShort);
+}
+
+.law {
+  text-decoration: none;
+  color: red;
+}
+/****************************************************************************************/
+/************************************** Return to top ***********************************/
+/**************************************************************************************/
+
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  animation: pulse 2s infinite;
+}
+
+#scrollTopBtn svg {
+  width: 40px; /* Ou la taille souhaitée */
+  height: 40px; /* Ou la taille souhaitée */
+  fill: white; /* Ou la couleur souhaitée */
+}
+
+html {
+  scroll-behavior: smooth;
+}
