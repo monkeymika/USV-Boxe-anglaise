@@ -453,6 +453,7 @@ header {
     rgba(181, 218, 178, 1) 100%
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -518,7 +519,7 @@ nav.scrolled {
 @media (max-width: 790px) {
   .hero__content {
     text-align: center;
-    padding: 4rem;
+    padding: 3rem;
   }
 
   .hero__img {
@@ -638,7 +639,7 @@ span.text {
 
 @media screen and (max-width: 1024px) {
   .container__club__img {
-    width: 80%;
+    width: 100%;
   }
 
   .counter__wrapper {
@@ -658,6 +659,7 @@ span.text {
 
   .club__content {
     max-width: 100%;
+    text-align: center;
   }
 
   .counter__wrapper {
