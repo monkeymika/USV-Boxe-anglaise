@@ -43,7 +43,8 @@ h3,
 h4,
 button,
 .text,
-.num {
+.num,
+.custom-button {
   font-family: "Anton", sans-serif;
 }
 
@@ -290,6 +291,10 @@ button:hover {
   border: 1px solid black;
   line-height: 1;
 }
+
+.nav-links img {
+  width: 30%;
+}
 .nav-links li {
   margin: 16px 0;
   position: relative;
@@ -504,7 +509,6 @@ nav.scrolled {
   border-radius: 50px;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
-  font-weight: 900;
 }
 
 .custom-button:hover {
@@ -551,6 +555,10 @@ nav.scrolled {
   .custom-button {
     width: 100%;
     height: auto;
+  }
+
+  .hero__content p {
+    font-size: 3.5vw;
   }
 }
 
@@ -887,6 +895,7 @@ footer {
 .law {
   text-decoration: none;
   color: red;
+  padding-top: 1rem;
 }
 /****************************************************************************************/
 /************************************** Return to top ***********************************/
