@@ -73,28 +73,24 @@ h2 {
 }
 
 h2::before {
-  content: ""; /* Nécessaire pour que le pseudo-élément s'affiche */
+  content: "";
   position: absolute;
-  left: -200px; /* Décalez la ligne à gauche du texte. Vous pouvez ajuster cette valeur pour rapprocher ou éloigner la ligne du texte */
-  top: 50%; /* Pour centrer verticalement la ligne par rapport au h2 */
-  transform: translateY(
-    -50%
-  ); /* Ajuste la position pour un centrage vertical parfait */
-  width: 150px; /* La longueur de votre ligne. Ajustez selon vos préférences */
-  height: 5px; /* L'épaisseur de votre ligne. Ajustez selon vos préférences */
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 5px;
   background-color: var(--greenShort);
 }
 
 h2::after {
-  content: ""; /* Nécessaire pour que le pseudo-élément s'affiche */
+  content: "";
   position: absolute;
-  right: -200px; /* Décalez la ligne à gauche du texte. Vous pouvez ajuster cette valeur pour rapprocher ou éloigner la ligne du texte */
-  top: 50%; /* Pour centrer verticalement la ligne par rapport au h2 */
-  transform: translateY(
-    -50%
-  ); /* Ajuste la position pour un centrage vertical parfait */
-  width: 150px; /* La longueur de votre ligne. Ajustez selon vos préférences */
-  height: 5px; /* L'épaisseur de votre ligne. Ajustez selon vos préférences */
+  right: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 150px;
+  height: 5px;
   background-color: var(--greenShort);
 }
 
@@ -157,17 +153,6 @@ section {
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-    transform: scale(1);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.1);
-    opacity: 1;
   }
 }
 
@@ -388,16 +373,17 @@ button:hover {
 
 header {
   background-image: linear-gradient(#f1f1f130, rgba(0, 0, 0, 0.925)),
-    url(../images/usv1.jpg);
+    url(../images/club3.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 90px;
-  animation: zoomIn 1.5s ease-in-out forwards;
+  opacity: 0;
+  animation: apparition 2s ease-out forwards;
 }
 
 .container__button {
@@ -567,22 +553,34 @@ nav.scrolled {
 
 .container__club {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 1rem;
+  background: #21242b;
+  padding: 1rem;
+  border-radius: 15px;
 }
 
 .container__club__img {
   width: 45%;
+  opacity: 0;
+  animation: apparition 0.4s ease-out forwards;
 }
 
 .container__club__img img {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
+}
+
+h3 {
+  color: #63af45;
 }
 
 .club__content {
   max-width: 50%;
   padding: 2rem;
+  opacity: 0;
+  animation: apparition 0.4s ease-out forwards;
 }
 
 .club__content p {
@@ -605,7 +603,8 @@ nav.scrolled {
   flex-direction: column;
   padding: 1.2em;
   font-size: 16px;
-  background: #21242b;
+  background: #161719;
+  box-shadow: 8px 10px 1px;
   border-radius: 20px;
 }
 
@@ -706,10 +705,12 @@ span.text {
 .presentation__container {
   display: flex;
   align-items: center;
-  max-width: 900px;
   margin: 0 auto;
-  gap: 2rem;
+  gap: 3rem;
   padding: 1rem;
+  max-width: 70%;
+  background: #21242b;
+  border-radius: 15px;
 }
 
 .presentation__container p {
@@ -720,9 +721,26 @@ span.text {
   width: 100%;
 }
 
+.presentation__content {
+  max-width: 60%;
+}
+
+.presentation__content p {
+  margin-top: 1rem;
+}
+.presentation__content li {
+  padding-top: 1rem;
+}
+
+strong {
+  font-weight: 900;
+  text-decoration: underline;
+}
+
 .img__container img {
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 950px) {
@@ -731,7 +749,7 @@ span.text {
   }
 
   .img__container {
-    width: 30%;
+    width: 80%;
   }
 }
 

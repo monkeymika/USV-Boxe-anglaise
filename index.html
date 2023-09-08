@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
+    <meta name="description"
+        content="USV Vandoeuvre Boxe Anglaise : Club de boxe à Vandoeuvre depuis plus de 30 ans. Bonne ambiance, entraineur experimenté. Contactez-nous pour plus d'informations.Tous niveaux acceptés" />
+
     <meta name="author" content="" />
     <title>USV Vandoeuvre - Boxe Anglaise</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" href="./images/faviconUSV.png" type="image/x-icon">
     <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/8921e10786.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -24,6 +26,19 @@
     <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
 
     <!-- Navigation -->
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <div class="container__logo__nav">
+                <img src="./images/logo_club_mini.png" alt="Logo du club de boxe anglaise">
+            </div>
+            <button type="button" id="menu-show-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+        </div>
+    </nav>
+
     <div class="nav-overlay">
         <button type="button" id="menu-hide-btn">
             <i class="fas fa-close"></i>
@@ -55,23 +70,6 @@
         </div>
     </div>
 
-    <nav class="nav-menu">
-        <div class="nav-container">
-            <div class="container__logo__nav">
-                <img src="./images/logo_club_mini.png" alt="Logo du club de boxe anglaise">
-            </div>
-            <button type="button" id="menu-show-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-
-
-        </div>
-    </nav>
-
-    <!-- Navigation - End -->
-
-    <!-- Header / Hero Section -->
-
     <header id="accueil">
 
         <div class="hero__content">
@@ -99,12 +97,12 @@
                 <h2>Le club</h2>
             </div>
 
-            <div class="container__club">
-                <div class="container__club__img reveal" data-delay="0.2s">
+            <div class="container__club reveal" data-delay="0.1s">
+                <div class="container__club__img">
                     <img src="./images/countBG.jpg" alt="Arriére-plan avec des boxeurs du club">
                 </div>
 
-                <div class="club__content reveal" data-delay="0.3s">
+                <div class="club__content">
                     <h3>Histoire du club</h3>
                     <p>
                         Le club de Boxe anglaise de Vandoeuvre existe depuis plus de 30 ans.
@@ -147,17 +145,47 @@
             </div>
 
 
-            <div class="presentation__container">
-                <div class="img__container reveal" data-delay="0.2s">
-                    <img src="./images/JMBoxe.png" alt="Photo de l'entraineur du club">
+            <div class="presentation__container reveal" data-delay="0.1s">
+                <div class="img__container">
+                    <img src="./images/coach5.jpg" alt="Photo de l'entraineur du club">
                 </div>
-                <div class="presentation__content reveal" data-delay="0.3s">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, explicabo obcaecati. Adipisci
-                        excepturi nemo quasi itaque accusantium cum, atque, perferendis nobis labore repellat veniam
-                        similique consequatur eligendi deserunt esse? Nobis exercitationem perspiciatis officia in autem
-                        eaque minus sequi consequuntur odit a. Laboriosam ut quam placeat ad eligendi magnam enim
-                        dignissimos!
+                <div class="presentation__content">
+                    <h3> Jean-Michel Mustapha</h3>
+                    <p>Il est humblement surnommé "le champion sans titre", mais la carrière de Jean-Michel Mustapha
+                        force le respect. Fort d'une riche expérience, voici quelques-uns de ses accomplissements
+                        notables :
                     </p>
+                    <ul>
+                        <li>
+                            <strong>Boxe Amateur</strong> : Avec 40 combats à son actif, il a atteint un quart de finale
+                            du Championnat
+                            de France et a été couronné à deux reprises champion d'Alsace-Lorraine.
+                        </li>
+                        <li>
+                            <strong>Boxe Professionnelle</strong> : Sur ses 6 combats, il s'est distingué en atteignant
+                            la demi-finale du
+                            Critérium de France.
+                        </li>
+                        <li>
+                            <strong>Boxe Thai</strong> : L'international n'a pas de secret pour lui. Il a combattu 6
+                            fois à Bangkok, en
+                            Thaïlande, avec un bilan impressionnant : 4 victoires, 1 match nul et seulement 1 défaite.
+                        </li>
+                        <li>
+                            <strong>Kick Boxing & Muay Thai</strong> : 20 combats qui témoignent de sa polyvalence et de
+                            sa passion pour
+                            les arts martiaux.
+                        </li>
+
+                    </ul>
+                    <p>
+                        Mais Jean-Michel est plus qu'un sportif de haut niveau. Doté d'un grand cœur, il a fondé
+                        l'association Cali-jeux, dédiée aux jeunes de son quartier. Un projet qui a connu un énorme
+                        succès avec jusqu'à 160 adhérents. De plus, il a eu l'honneur de collaborer avec René Cordier
+                        pour organiser des animations en faveur des jeunes.
+                    </p>
+
+
                 </div>
             </div>
         </section>
@@ -182,7 +210,6 @@
             <li><img src="./images/blackWhiteBoxe.jpg" alt=""></li>
             <li><img src="./images/usv2.jpg" alt=""></li>
             <li><img src="./images/usv4.jpg" alt=""></li>
-
             <li><img src="./images/usv6.jpg" alt=""></li>
             <li><img src="./images/usv12.jpg" alt=""></li>
             <li><img src="./images/usv15.jpg" alt=""></li>
@@ -192,6 +219,7 @@
             <li><img src="./images/usv14.jpg" alt=""></li>
             <li><img src="./images/usv18.jpg" alt=""></li>
             <li><img src="./images/usv17.jpg" alt=""></li>
+            <li><img src="./images/usv1.jpg" alt=""></li>
         </ul>
     </section>
 

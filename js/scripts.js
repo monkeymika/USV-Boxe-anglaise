@@ -20,9 +20,9 @@
 /*******************************************************************/
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav-menu');
-    if (window.pageYOffset > 0) {
-        nav.style.background = 'rgb(65 65 65 / 80%)'; // couleur semi-transparente pour le glassmorphism
-        nav.style.backdropFilter = 'blur(10px)'; // effet de flou
+    if (window.scrollY > 0) {
+        nav.style.background = 'rgb(65 65 65 / 80%)';
+        nav.style.backdropFilter = 'blur(10px)';
     } else {
         nav.style.background = 'transparent';
         nav.style.backdropFilter = 'none';
