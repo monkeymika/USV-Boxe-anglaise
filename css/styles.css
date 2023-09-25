@@ -913,6 +913,11 @@ strong {
   .presentation__content li {
     font-size: 0.8em;
   }
+
+  .presentation__content {
+    width: 100%;
+    padding: 1rem;
+  }
 }
 
 /****************************************************************************************/
